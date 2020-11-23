@@ -9,7 +9,7 @@ global.cron = require('node-cron');
 global.notifier = require('node-notifier');
 global.moment = require('moment');
 global.storage = multer.diskStorage({
-	destination: '../src/assets/uploads/' ,
+	destination: '/src/assets/uploads/' ,
 
 	filename(req , file , cb) {
 		cb(null , file.originalname, true);
