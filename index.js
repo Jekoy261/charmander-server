@@ -8,14 +8,13 @@ global.cron = require('node-cron');
 
 global.notifier = require('node-notifier');
 global.moment = require('moment');
-global.storage = multer.diskStorage({
-	destination: '/src/assets/uploads/' ,
-
-	filename(req , file , cb) {
-		cb(null , file.originalname, true);
-	}
-});
-global.upload = multer({ storage: storage }).single('myFile');
+//global.storage = multer.diskStorage({
+//	destination: '/src/assets/uploads/' ,
+//	filename(req , file , cb) {
+//		cb(null , file.originalname, true);
+//	}
+//});
+//global.upload = multer({ storage: storage }).single('myFile');
 
 const APIDB = require("./functions/db");
 APIDB.dbConnection();
@@ -31,7 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.listen(process.env.PORT || port, '0.0.0.0', function() {
+app.listen(process.env.PORT || port, function() {
     console.log('Listening to port:  ' + process.env.PORT || port);
 });
 
